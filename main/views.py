@@ -10,7 +10,6 @@ redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
 def homepage(request):
 	return HttpResponse("<h4>Hello World</h4>")
 
-
 def tasks(request, page):
 	response = my_first_task.delay(1)
 	redis_cache.set('task1', response.id)
